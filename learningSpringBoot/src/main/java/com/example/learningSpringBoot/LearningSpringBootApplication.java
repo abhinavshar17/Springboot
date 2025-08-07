@@ -1,5 +1,6 @@
 package com.example.learningSpringBoot;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,8 +12,12 @@ public class LearningSpringBootApplication implements CommandLineRunner {
 		SpringApplication.run(LearningSpringBootApplication.class, args);
 	}
 
-	private RazorPaymentService paymentService ;
+	//@Autowired
+	private final RazorPaymentService paymentService ;
+
+	//constructor dependecy injection:
  	public  LearningSpringBootApplication(RazorPaymentService paymentService){
+		 this.paymentService=paymentService;
 	}
 	@Override
 	public void run(String... args) throws Exception {
